@@ -32,6 +32,20 @@ for j in range(len(stacks)-2, -1, -1):
 for k in stacks_whole.keys():
     stacks_whole[k] = list(filter(None, stacks_whole[k]))
     
+import re
+
+for p in procedure:
+    task = re.findall(r'\d+', p)
+    task = [int(i) for i in task]
+    
+    for num in range(task[0]):
+        stacks_whole[task[2]].append(stacks_whole[task[1]].pop(-1))
+    
+    
+for k in stacks_whole.keys():
+    print(stacks_whole[k][len(stacks_whole[k])-1])
+    
+
+#%% Part 2
 
 
-stacks_whole[2].append(stacks_whole[1].pop(-1))
